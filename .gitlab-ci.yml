@@ -1,0 +1,11 @@
+stages:
+  - testing
+
+testing:
+  stage: testing
+  script:
+    - ls
+  only:
+    - main
+  tags:
+    - realphtest
