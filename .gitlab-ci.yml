@@ -1,11 +1,16 @@
 stages:
   - testing
 
-testing:
+testing-realph:
   stage: testing
+  rules:
+    - if: '$TASKNAME == "web-builder"'
+      when: always  
   script:
-    - ls
-  only:
-    - main
+    - export PATH=/home/gitlab-runner/.nvm/versions/node/v18.12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+    - git fetch origin main
+    - git checkout FETCH_HEAD
+    - npm ci
+    - npm run test
   tags:
     - realphtest
