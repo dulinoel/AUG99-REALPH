@@ -4,7 +4,7 @@ stages:
 testing-realph:
   stage: testing
   rules:
-    - if: '$TASKNAME == "web-builder"'
+    - if: '$TASKNAME == "realph"'
       when: always  
   script:
     - export PATH=/home/gitlab-runner/.nvm/versions/node/v18.12.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
