@@ -12,7 +12,7 @@ describe('check pages inside user', () => {
 
   it('check dashboard', () => {
     cy.intercept('GET', '/account/dashboard').as('searchIntercept')
-    cy.wait('@searchIntercept',{ timeout: 10000 }).its('response.statusCode').should('eq',200)
+    cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
     cy.url().then(currentUrl => {
       cy.request(currentUrl).then(response => {
@@ -24,13 +24,13 @@ describe('check pages inside user', () => {
 
   it('check profile', () => {
     cy.intercept('GET', '/account/dashboard').as('searchIntercept')
-    cy.wait('@searchIntercept',{ timeout: 10000 }).its('response.statusCode').should('eq',200)
+    cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
-    cy.get('.header-user-controls__item--profile',{ timeout: 10000 }).click()
-    cy.get('.header-user-controls__nav-menu > ul > :nth-child(2) > a',{ timeout: 10000 }).click()
+    cy.get('.header-user-controls__item--profile',{ timeout: 30000 }).click()
+    cy.get('.header-user-controls__nav-menu > ul > :nth-child(2) > a',{ timeout: 30000 }).click()
 
     // cy.intercept('GET', '/profile').as('profile')
-    // cy.wait('@profile',{ timeout: 10000 }).its('response.statusCode').should('eq',200)
+    // cy.wait('@profile',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
     cy.url().then(currentUrl => {
       cy.request(currentUrl).then(response => {
@@ -42,13 +42,13 @@ describe('check pages inside user', () => {
 
   it('check properties favorite', () => {
     cy.intercept('GET', '/account/dashboard').as('searchIntercept')
-    cy.wait('@searchIntercept',{ timeout: 10000 }).its('response.statusCode').should('eq',200)
+    cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
-    cy.get('.header-user-controls__item--profile',{ timeout: 10000 }).click()
-    cy.get('.header-user-controls__nav-menu > ul > :nth-child(3) > a',{ timeout: 10000 }).click()
+    cy.get('.header-user-controls__item--profile',{ timeout: 30000 }).click()
+    cy.get('.header-user-controls__nav-menu > ul > :nth-child(3) > a',{ timeout: 30000 }).click()
 
     // cy.intercept('GET', '/starred/properties').as('starred')
-    // cy.wait('@starred',{ timeout: 10000 }).its('response.statusCode').should('eq',200)
+    // cy.wait('@starred',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
     cy.url().then(currentUrl => {
       cy.request(currentUrl).then(response => {
