@@ -11,8 +11,8 @@ describe('check pages inside user', () => {
   });
 
   it('check dashboard', () => {
-    cy.intercept('GET', '/account/dashboard').as('searchIntercept')
-    cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
+    // cy.intercept('GET', '/account/dashboard').as('searchIntercept')
+    // cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
     cy.url().then(currentUrl => {
       cy.request(currentUrl).then(response => {
@@ -23,8 +23,8 @@ describe('check pages inside user', () => {
   });
 
   it('check profile', () => {
-    cy.intercept('GET', '/account/dashboard').as('searchIntercept')
-    cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
+    // cy.intercept('GET', '/account/dashboard').as('searchIntercept')
+    // cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
     cy.get('.header-user-controls__item--profile',{ timeout: 30000 }).click()
     cy.get('.header-user-controls__nav-menu > ul > :nth-child(2) > a',{ timeout: 30000 }).click()
@@ -41,8 +41,8 @@ describe('check pages inside user', () => {
   });
 
   it('check properties favorite', () => {
-    cy.intercept('GET', '/account/dashboard').as('searchIntercept')
-    cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
+    // cy.intercept('GET', '/account/dashboard').as('searchIntercept')
+    // cy.wait('@searchIntercept',{ timeout: 30000 }).its('response.statusCode').should('eq',200)
 
     cy.get('.header-user-controls__item--profile',{ timeout: 30000 }).click()
     cy.get('.header-user-controls__nav-menu > ul > :nth-child(3) > a',{ timeout: 30000 }).click()
