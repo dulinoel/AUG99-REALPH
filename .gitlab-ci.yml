@@ -1,6 +1,15 @@
 stages:
   - testing
-
+  
+before_script: . slack-notif-start.sh
+after_script:
+    - set -e
+    - |
+      if [ $CI_JOB_STATUS == 'success' ]; then
+        . slack-notif-success.sh
+      else
+        . slack-notif-failed.sh
+      fi
 testing-realph:
   stage: testing
   rules:
